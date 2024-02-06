@@ -17,6 +17,6 @@ public class EasyBlink : Blink
     // Update is called once per frame
     void Update()
     {
-        MovePattern();
+        IfHealthIs0();
     }
 }
