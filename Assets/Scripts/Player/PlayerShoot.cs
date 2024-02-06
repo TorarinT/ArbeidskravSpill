@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Camera playerCamera;
     void Start()
     {
-        
+        playerCamera = Camera.main;
     }
 
     // Update is called once per frame
