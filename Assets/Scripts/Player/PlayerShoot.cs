@@ -4,30 +4,29 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
-    private Camera cam;
-    private float distance = 10f;
-    public LayerMask layerMask;
-    public Blink blink;
+    public new Camera camera;
     void Start()
     {
-        
-        cam = GetComponent<FPSController>().playerCamera;
+        camera = Camera.main;
+        Cursor.visible = false;
     }
 
-    
+    // Update is called once per frame
     void Update()
     {
-        Ray ray = new Ray(cam.transform.position, cam.transform.forward); 
-        Debug.DrawRay(ray.origin, ray.direction);
-        RaycastHit hitInfo;
-        if(Physics.Raycast(ray, out hitInfo, distance, layerMask))
+        if (Input.GetMouseButtonDown(0))
         {
-            if (hitInfo.collider.GetComponent<Blink>()) {
-                // To do, fjerne liv fra blinken når man klikker mouse0
+            Debug.Log("Pressed mouse 0");
+            Ray ray = new Ray(camera.transform.position, camera.transform.forward);
+            if (Physics.Raycast(ray, out RaycastHit hitInfo))
+            {
+                Blink blink = hitInfo.collider.GetComponent<Blink>();
+                if (blink != null)
+                {
+                    blink.health -= 50f;
+                }
             }
-            Debug.Log("Hit something");
-            
-        }   
-        
+        }
+
     }
 }
