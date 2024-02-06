@@ -7,12 +7,19 @@ public class PlayerShoot : MonoBehaviour
     private Camera playerCamera;
     void Start()
     {
+
         playerCamera = Camera.main;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        RaycastHit hit;
+        Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
+        {
+            Transform objectHit = hit.transform;
+            Debug.Log("Hit something");
+        }
     }
 }
