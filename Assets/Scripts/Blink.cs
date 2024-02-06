@@ -19,6 +19,13 @@ public abstract class Blink : MonoBehaviour
 
         
     }
+    public void IfHealthIs0()
+    {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Update()
     {
