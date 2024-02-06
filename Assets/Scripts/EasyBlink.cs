@@ -9,7 +9,7 @@ public class EasyBlink : Blink
     void Start()
     {
         health = 100f;
-        speed = 40f;
+        speed = 1f;
         delay = 0.1f;
         time = 10;
     }
