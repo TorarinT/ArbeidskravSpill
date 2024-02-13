@@ -19,7 +19,7 @@ public abstract class Blink : MonoBehaviour
             float startTime = Time.time;
             while (Time.time - startTime < moveDistance / moveSpeed)
             {
-                transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+                transform.Translate(moveSpeed * Time.deltaTime * Vector3.right);
                 yield return null;
             }
             yield return new WaitForSeconds(moveDelay);
