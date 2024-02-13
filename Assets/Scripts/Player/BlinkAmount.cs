@@ -8,6 +8,7 @@ public class NewBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     private int blink;
     [SerializeField] TextMeshProUGUI amountOfBlinks;
+    [SerializeField] GameObject player;
     void Start()
     {
         blink = GameObject.FindGameObjectsWithTag("Blink").Length;
@@ -19,5 +20,8 @@ public class NewBehaviourScript : MonoBehaviour
     {
         blink = GameObject.FindGameObjectsWithTag("Blink").Length;
         amountOfBlinks.text = "Blinks Remaining:" + " " + blink;
+        if (blink <= 0) {
+            player.GetComponent<Victory>().enabled = true; // Aktiverer Victory script som tar deg til Victory scene
+        }
     }
 }
