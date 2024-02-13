@@ -22,6 +22,10 @@ public class Accuracy : MonoBehaviour
         miss++;
         CalculateAccuracy();
     }
+    public string GetAccuracy()
+    {
+        return accuracyText.text;
+    }
 
     public void CalculateAccuracy()
     {
@@ -30,6 +34,8 @@ public class Accuracy : MonoBehaviour
             float accuracy = (float)hit / (hit + miss) * 100f;
             Debug.Log("Accuracy: " + accuracy.ToString("F2") + "%");
             accuracyText.text = "Accuracy:" +" " + accuracy.ToString("F2")+ "%";
+            PlayerPrefs.SetString("accuracyString",accuracyText.text);
+            PlayerPrefs.Save(); // Lagrer accuracy texten slik at vi kan bruke d i victory scene
         }
         else
         {
