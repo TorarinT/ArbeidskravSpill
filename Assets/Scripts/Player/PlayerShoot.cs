@@ -6,6 +6,7 @@ public class PlayerShoot : MonoBehaviour
 {
     public new Camera camera;
     private Accuracy accuracy;
+    [SerializeField] AudioSource src;
     void Start()
     {
         camera = Camera.main;
@@ -19,6 +20,7 @@ public class PlayerShoot : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Pressed mouse 0");
+            src.Play();
             Ray ray = new Ray(camera.transform.position, camera.transform.forward);
             if (Physics.Raycast(ray, out RaycastHit hitInfo))
             {
