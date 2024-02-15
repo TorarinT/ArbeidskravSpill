@@ -9,13 +9,11 @@ public class VictoryAccuracy : MonoBehaviour
 
     void Start()
     {
-        string accuracy = PlayerPrefs.GetString("accuracyString");
+        string accuracy = PlayerPrefs.GetString("accuracyString"); // Lagret i Accuracy script
         victoryAccuracyText.text = accuracy;
         Debug.Log(victoryAccuracyText.text);
 
     }
-
-    // Update is called once per frame
     void Update()
     {
         

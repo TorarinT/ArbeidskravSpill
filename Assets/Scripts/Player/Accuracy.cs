@@ -35,8 +35,8 @@ public class Accuracy : MonoBehaviour
             Debug.Log("Accuracy: " + accuracy.ToString("F2") + "%");
             accuracyText.text = "Accuracy:" +" " + accuracy.ToString("F2")+ "%";
             PlayerPrefs.SetString("accuracyString",accuracyText.text);
-            PlayerPrefs.Save(); // Lagrer accuracy texten slik at vi kan bruke d i victory scene
-        }
+            PlayerPrefs.Save();  // Lagrer accuracy texten slik at vi kan bruke d i victory scene
+        }  
         else
         {
             Debug.Log("No hits or misses yet.");
